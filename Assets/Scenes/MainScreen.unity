@@ -14919,8 +14919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1526841387}
-  walkSpeed: 2
-  runSpeed: 4
+  walkSpeed: 4
+  runSpeed: 6
   jumpForce: 5
   cameraTransform: {fileID: 1682318103}
   rollDistance: 3
