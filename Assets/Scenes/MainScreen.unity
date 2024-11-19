@@ -14919,7 +14919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1526841387}
-  walkSpeed: 4
+  walkSpeed: 3
   runSpeed: 6
   jumpForce: 5
   cameraTransform: {fileID: 1682318103}
