@@ -4705,6 +4705,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1877870421}
     m_Modifications:
+    - target: {fileID: 3048767481817742439, guid: cd37a03b3c889764595f7b7b4ae8ac0c, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048767481817742439, guid: cd37a03b3c889764595f7b7b4ae8ac0c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -6478536213147159724, guid: fd2dd6473d25b6b42ad5601812ae304d, type: 3}
     - target: {fileID: 3553227608221916594, guid: cd37a03b3c889764595f7b7b4ae8ac0c, type: 3}
       propertyPath: m_Name
       value: Sword
@@ -13337,6 +13345,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1526841390}
+    - targetCorrespondingSourceObject: {fileID: 4957605393579145644, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1526841391}
   m_SourcePrefab: {fileID: 100100000, guid: 4f46098734d87e24490aef9267915ad2, type: 3}
 --- !u!1 &1208327526 stripped
 GameObject:
@@ -16215,6 +16226,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 0.5
+--- !u!114 &1526841391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526841383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1312024f2a99e4e824c8eb0c131029, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1531629038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8815786951166758606, guid: affe02f7cad70354eaffa9ea68ebb64c, type: 3}
@@ -19569,9 +19593,10 @@ GameObject:
   - component: {fileID: 1891619667}
   - component: {fileID: 1891619666}
   - component: {fileID: 1891619665}
+  - component: {fileID: 1891619671}
   m_Layer: 6
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19702,6 +19727,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891619671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891619664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 30
 --- !u!1 &1907523682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4789322276572451704, guid: affe02f7cad70354eaffa9ea68ebb64c, type: 3}
