@@ -14,7 +14,15 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage; // Hasarý mevcut candan çýkar
         Debug.Log("Player Health: " + currentHealth);
+        
+        Animator animator = GetComponent<Animator>();
+        // Hasar alma animasyonunu tetikle
+        if (animator != null)
+        {
+            animator.SetTrigger("TakeDamage");
+        }
 
+        // Can sýfýra ulaþtýðýnda ölme iþlemini tetikle
         if (currentHealth <= 0)
         {
             Die();
@@ -28,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         if (animator != null)
         {
             animator.SetTrigger("Die"); // Ölüm animasyonunu tetikleyin
+            animator.ResetTrigger("TakeDamage");
         }
 
         // Oyun mekaniðine göre hareketleri durdurabilirsiniz
