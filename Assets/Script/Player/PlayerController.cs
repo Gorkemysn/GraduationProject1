@@ -16,9 +16,18 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool canRoll = true; // Takla atabilme durumu
 
+    public float maxStamina = 100f; // Maksimum stamina
+    private float currentStamina; // Mevcut stamina
+    public float staminaRegenRate = 5f; // Stamina yenilenme hýzý
+    public float staminaUsageRateRun = 10f; // Koþarken harcanan stamina
+    public float staminaUsageRoll = 20f; // Takla sýrasýnda harcanan stamina
+    public StaminaBar staminaBar; // UI bar referansý
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentStamina = maxStamina;
+        staminaBar.SetMaxStamina(maxStamina); // UI bar için maksimum deðeri belirle
     }
 
     void Update()
@@ -28,9 +37,12 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
-        // Eðer hareket varsa animasyonlarý kontrol et
-        bool isWalking = direction.magnitude >= 0.1f && !Input.GetKey(KeyCode.LeftShift);
-        bool isRunning = direction.magnitude >= 0.1f && Input.GetKey(KeyCode.LeftShift);
+        // Koþma durumunu stamina kontrolü ile belirle
+        bool canRun = currentStamina > 0 && Input.GetKey(KeyCode.LeftShift);
+        bool isRunning = direction.magnitude >= 0.1f && canRun;
+        bool isWalking = direction.magnitude >= 0.1f && !isRunning;
+
+        // Animasyonlarý güncelle
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isRunning", isRunning);
 
@@ -61,6 +73,22 @@ public class PlayerController : MonoBehaviour
             transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
         }
 
+        // Stamina Yenilenme
+        if (currentStamina < maxStamina)
+        {
+            currentStamina += staminaRegenRate * Time.deltaTime; // Dinlenme sýrasýnda stamina yenile
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Aralýk dýþýna çýkmasýný önle
+            staminaBar.SetStamina(currentStamina); // UI barý güncelle
+        }
+
+        // Stamina Tüketimi
+        if (isRunning)
+        {
+            currentStamina -= staminaUsageRateRun * Time.deltaTime; // Staminayý azalt
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); // Negatif deðere inmesini önle
+            staminaBar.SetStamina(currentStamina); // UI barý güncelle
+        }
+
         // Zýplama Kontrolü
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -70,9 +98,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // Takla Kontrolü
-        if (Input.GetKeyDown(KeyCode.C) && canRoll)
+        if (Input.GetKeyDown(KeyCode.C) && canRoll && currentStamina >= staminaUsageRoll)
         {
             StartCoroutine(PerformRoll());
+            currentStamina -= staminaUsageRoll; // Takla sýrasýnda stamina tüket
+            staminaBar.SetStamina(currentStamina); // UI barý güncelle
         }
     }
 
