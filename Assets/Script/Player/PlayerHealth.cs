@@ -1,18 +1,23 @@
 using UnityEngine;
 
+
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100; // Maksimum can
     private int currentHealth;
+    public HealthBar healthBar;
+
 
     void Start()
     {
         currentHealth = maxHealth; // Oyuncunun baþlangýç caný
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // Hasarý mevcut candan çýkar
+        healthBar.SetHealth(currentHealth);
         Debug.Log("Player Health: " + currentHealth);
         
         Animator animator = GetComponent<Animator>();

@@ -9,7 +9,7 @@ public class CombatAndSword : MonoBehaviour
     // Kýlýç için gerekli bileþenler
     public GameObject sword; // Kýlýç objesi
     public Transform swordHitbox; // Kýlýcýn hasar bölgesi
-    public float swordDamage = 10f; // Kýlýç hasar deðeri
+    public int swordDamage = 10; // Kýlýç hasar deðeri
     public LayerMask enemyLayers; // Düþmanlarý belirlemek için katman maskesi
     public float attackRange = 1f; // Saldýrý mesafesi
 

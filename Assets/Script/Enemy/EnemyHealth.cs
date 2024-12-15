@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float health = 50f; // Düþmanýn toplam saðlýðý
+    public int maxHealth = 100; // Maksimum can
+    private int currentHealth;
+    private HealthBar healthBar;
 
     // Hasar alma fonksiyonu
-    public void TakeDamage(float amount)
-    {
-        health -= amount;
-        Debug.Log("Enemy Health: " + health);
 
-        if (health <= 0)
+    void Start()
+    {
+        currentHealth = maxHealth; // Oyuncunun baþlangýç caný
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
+
+    public void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+        Debug.Log("Enemy Health: " + currentHealth);
+
+        healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
         {
             Die();
         }
