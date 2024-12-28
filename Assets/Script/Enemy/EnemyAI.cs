@@ -22,13 +22,6 @@ public class EnemyAI : MonoBehaviour
     public float detectionRange = 10f;
     public float attackRange = 2f;
 
-    [Header("Awareness Bar")]
-    public Slider awarenessSlider;
-    public float awareness = 0f;
-    public float maxAwareness = 100f;
-    public float awarenessIncreaseRate = 10f;
-    public float awarenessDecreaseRate = 5f;
-
     [Header("Dodge Settings")]
     public float dodgeDistance = 3f;
     public float dodgeCooldown = 2f;
@@ -61,45 +54,6 @@ public class EnemyAI : MonoBehaviour
             case EnemyState.Dodge:
                 DodgeUpdate();
                 break;
-        }
-
-        UpdateAwareness();
-    }
-
-    // Awareness Bar kontrolü
-    private void UpdateAwareness()
-    {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= detectionRange)
-        {
-            awareness += awarenessIncreaseRate * Time.deltaTime;
-            awareness = Mathf.Clamp(awareness, 0, maxAwareness);
-
-            if (awareness == maxAwareness && currentState != EnemyState.Chase)
-            {
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isRunning", true);
-                currentState = EnemyState.Chase;
-            }
-        }
-        else
-        {
-            awareness -= awarenessDecreaseRate * Time.deltaTime;
-            awareness = Mathf.Clamp(awareness, 0, maxAwareness);
-
-            if (awareness == 0 && currentState == EnemyState.Chase)
-            {
-                animator.SetBool("isRunning", false);
-                animator.SetBool("isWalking", true);
-                currentState = EnemyState.Patrol;
-                GoToNextPatrolPoint();
-            }
-        }
-
-        if (awarenessSlider != null)
-        {
-            awarenessSlider.value = awareness / maxAwareness;
         }
     }
 

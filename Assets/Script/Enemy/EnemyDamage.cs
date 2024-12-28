@@ -2,16 +2,18 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int damageAmount; // Verilecek hasar miktarý
+    public int damageAmount = 10; // Kýlýcýn vereceði hasar miktarý
+    public string targetTag = "Player"; // Hasar verilecek hedefin tag'i
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag(targetTag)) // Kýlýç, oyuncu ile temas ederse
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damageAmount);
+                playerHealth.TakeDamage(damageAmount); // Oyuncuya hasar ver
+                Debug.Log("Player hit by sword! Health decreased.");
             }
         }
     }
