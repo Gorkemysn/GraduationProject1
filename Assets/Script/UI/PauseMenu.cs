@@ -35,6 +35,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; // Oyun zamanýný duraklat
         pauseMenuUI.SetActive(true); // Pause menüsünü göster
         isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         // Fareyi serbest býrak (kamera kontrolünü devre dýþý býrak)
         if (cameraScript != null)
@@ -48,6 +50,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir
         pauseMenuUI.SetActive(false); // Pause menüsünü kapat
         isPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+Cursor.visible = false;
 
         // Fareyi kilitle (kamera kontrolünü tekrar etkinleþtir)
         if (cameraScript != null)
