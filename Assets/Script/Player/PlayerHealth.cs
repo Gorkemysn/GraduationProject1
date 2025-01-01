@@ -1,12 +1,13 @@
 using UnityEngine;
 
-
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100; // Maksimum can
     private int currentHealth;
     public HealthBar healthBar;
+    public DeathMenu deathMenu; // DeathMenu referansý
 
+    private bool isDead = false; // Ölüm durumunu takip etmek için bir bayrak
 
     void Start()
     {
@@ -16,16 +17,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (isDead) return; // Eðer zaten ölü ise iþlem yapma
+
         currentHealth -= damage; // Hasarý mevcut candan çýkar
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth); // UI güncelle
+
         Debug.Log("Player Health: " + currentHealth);
-        
-        Animator animator = GetComponent<Animator>();
-        // Hasar alma animasyonunu tetikle
-        if (animator != null)
-        {
-            animator.SetTrigger("TakeDamage");
-        }
 
         // Can sýfýra ulaþtýðýnda ölme iþlemini tetikle
         if (currentHealth <= 0)
@@ -36,16 +33,26 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (isDead) return; // Ölüm iþlemi tekrar çalýþmasýn
+        isDead = true;
+
         Debug.Log("Player Died!");
-        Animator animator = GetComponent<Animator>();
-        if (animator != null)
+
+        // Karakterin kontrolünü kapat
+        PlayerController controller = GetComponent<PlayerController>();
+        if (controller != null)
         {
-            animator.SetTrigger("Die"); // Ölüm animasyonunu tetikleyin
-            animator.ResetTrigger("TakeDamage");
+            controller.enabled = false;
         }
 
-        // Oyun mekaniðine göre hareketleri durdurabilirsiniz
-        GetComponent<PlayerController>().enabled = false;
-        Rigidbody rb = GetComponent<Rigidbody>();
+        // Ölüm ekranýný göster
+        if (deathMenu != null)
+        {
+            deathMenu.ShowDeathScreen();
+        }
+        else
+        {
+            Debug.LogError("DeathMenu is not assigned in the Inspector.");
+        }
     }
 }

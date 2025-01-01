@@ -50,7 +50,7 @@ public class MenuAnimation : MonoBehaviour
     {
         float elapsedTime = 0f;
         Vector3 startPosition = droppingPartText.transform.position;
-        Vector3 endPosition = startPosition + new Vector3(0, -475f, 0); // Aþaðýya doðru hareket
+        Vector3 endPosition = startPosition + new Vector3(0, -600f, 0); // Aþaðýya doðru hareket
 
         while (elapsedTime < dropDuration)
         {
