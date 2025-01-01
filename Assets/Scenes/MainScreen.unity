@@ -10254,6 +10254,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1788623314744564118, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 1788623314744564119, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -32290,8 +32294,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.75, z: 1.4955727}
-  m_Center: {x: -3.1456263e-17, y: 0.9, z: 0.2477864}
+  m_Size: {x: 1.4996489, y: 1.75, z: 2.1184094}
+  m_Center: {x: 0.24981633, y: 0.9, z: 0.5592049}
 --- !u!114 &1088057577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40462,8 +40466,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.75, z: 1.4955727}
-  m_Center: {x: -3.1456263e-17, y: 0.9, z: 0.2477864}
+  m_Size: {x: 1.2712582, y: 1.75, z: 2.1176355}
+  m_Center: {x: 0.13563143, y: 0.9, z: 0.55882204}
 --- !u!114 &1490067000
 MonoBehaviour:
   m_ObjectHideFlags: 0
