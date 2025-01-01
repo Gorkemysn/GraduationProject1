@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
-    // FSM State'leri için enum
     private enum EnemyState { Patrol, Chase, Attack, Dodge }
 
-    private EnemyState currentState; // Mevcut state
+    private EnemyState currentState;
 
     [Header("Components")]
     public NavMeshAgent agent;
@@ -29,9 +28,8 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
-        // Baþlangýç state'i
         currentState = EnemyState.Patrol;
-        animator.SetBool("isWalking", true);
+        SetAnimationState(true, false);
         GoToNextPatrolPoint();
     }
 
@@ -57,7 +55,15 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    // Devriye State
+    private void SetAnimationState(bool isWalking, bool isRunning, bool isAttacking = false, bool isDodging = false)
+    {
+        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("isRunning", isRunning);
+
+        if (isAttacking) animator.SetTrigger("Attack");
+        if (isDodging) animator.SetTrigger("Dodge");
+    }
+
     private void PatrolUpdate()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.8f)
@@ -68,8 +74,7 @@ public class EnemyAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= detectionRange)
         {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", true);
+            SetAnimationState(false, true);
             currentState = EnemyState.Chase;
         }
     }
@@ -82,7 +87,6 @@ public class EnemyAI : MonoBehaviour
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
-    // Kovalama State
     private void ChaseUpdate()
     {
         agent.SetDestination(player.position);
@@ -90,46 +94,42 @@ public class EnemyAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer <= attackRange)
         {
-            animator.SetBool("isRunning", false);
+            SetAnimationState(false, false);
             currentState = EnemyState.Attack;
         }
         else if (distanceToPlayer > detectionRange)
         {
-            animator.SetBool("isRunning", false);
-            animator.SetBool("isWalking", true);
+            SetAnimationState(true, false);
             currentState = EnemyState.Patrol;
             GoToNextPatrolPoint();
         }
     }
 
-    // Saldýrma State
     private void AttackUpdate()
     {
-        agent.ResetPath(); // Hareketi durdur
-        transform.LookAt(player); // Oyuncuya doðru bak
+        agent.ResetPath();
+        transform.LookAt(player);
 
-        // Saldýrý animasyonu
-        animator.SetTrigger("Attack");
+        SetAnimationState(false, false, true);
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer > attackRange)
         {
             currentState = EnemyState.Chase;
         }
-        else if (canDodge && Random.value > 0.7f) // Rastgele bir ihtimalle dodge yap
+        else if (canDodge && Random.value > 0.7f)
         {
             currentState = EnemyState.Dodge;
         }
     }
 
-    // Kaçýnma State
     private void DodgeUpdate()
     {
         if (!canDodge) return;
 
         canDodge = false;
-        // Rastgele bir yöne doðru kaçýnma
-        Vector3 dodgeDirection = (Random.insideUnitSphere * dodgeDistance).normalized;
+
+        Vector3 dodgeDirection = (transform.position - player.position).normalized * dodgeDistance;
         dodgeDirection.y = 0;
 
         Vector3 dodgePosition = transform.position + dodgeDirection;
@@ -139,10 +139,8 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(hit.position);
         }
 
-        // Kaçýnma animasyonu
-        animator.SetTrigger("Dodge");
+        SetAnimationState(false, false, false, true);
 
-        // Kaçýnma iþlemi bittikten sonra saldýrýya geri dön
         Invoke(nameof(ResetDodge), dodgeCooldown);
         currentState = EnemyState.Attack;
     }

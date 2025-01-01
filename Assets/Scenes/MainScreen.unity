@@ -5454,9 +5454,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1696329833}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1696329835}
     - targetCorrespondingSourceObject: {fileID: -1996471662184344498, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 937370835}
@@ -9296,20 +9293,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &420342970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 420342962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  targetTag: Player
 --- !u!1 &421158066 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2400118102460146379, guid: affe02f7cad70354eaffa9ea68ebb64c, type: 3}
@@ -16821,39 +16804,9 @@ MonoBehaviour:
   skyboxSunrise: {fileID: 2800000, guid: 7deb3454b299fae498f2365d40aee326, type: 3}
   skyboxDay: {fileID: 2800000, guid: 90bac99dc822bf641b140cdc291b845e, type: 3}
   skyboxSunset: {fileID: 2800000, guid: 88c4ef1770f6491408e50fd96829b1b6, type: 3}
-  graddientNightToSunrise:
+  gradientNightToSunrise:
     serializedVersion: 2
-    key0: {r: 0.31700557, g: 0.17332682, b: 0.38679248, a: 1}
-    key1: {r: 0.5849056, g: 0.32576638, b: 0.19037023, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 49922
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
-  graddientSunriseToDay:
-    serializedVersion: 2
-    key0: {r: 0.5849056, g: 0.29301247, b: 0.09656459, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -16881,10 +16834,10 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  graddientDayToSunset:
+  gradientSunriseToDay:
     serializedVersion: 2
-    key0: {r: 0.9716981, g: 0.96054095, b: 0.9487807, a: 1}
-    key1: {r: 0.9245283, g: 0.60434157, b: 0.13519046, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -16892,7 +16845,7 @@ MonoBehaviour:
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 48380
+    ctime1: 65535
     ctime2: 0
     ctime3: 0
     ctime4: 0
@@ -16911,10 +16864,40 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  graddientSunsetToNight:
+  gradientDayToSunset:
     serializedVersion: 2
-    key0: {r: 0.7924528, g: 0.53091055, b: 0.17568529, a: 1}
-    key1: {r: 0.31764707, g: 0.17254902, b: 0.3882353, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  gradientSunsetToNight:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -16945,6 +16928,7 @@ MonoBehaviour:
   minutes: 0
   hours: 5
   days: 0
+  timeScale: 5
 --- !u!4 &723231202
 Transform:
   m_ObjectHideFlags: 0
@@ -23801,20 +23785,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1021366325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021366317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  targetTag: Player
 --- !u!1 &1021821517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1146376519560751855, guid: affe02f7cad70354eaffa9ea68ebb64c, type: 3}
@@ -43115,9 +43085,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 420342964}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 420342970}
     - targetCorrespondingSourceObject: {fileID: -1996471662184344498, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1934006429}
@@ -44398,9 +44365,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2125787674}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2125787680}
     - targetCorrespondingSourceObject: {fileID: -1996471662184344498, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 574100646}
@@ -45486,20 +45450,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
   m_PrefabInstance: {fileID: 250806895}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1696329835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696329826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  targetTag: Player
 --- !u!1 &1696834722
 GameObject:
   m_ObjectHideFlags: 0
@@ -56037,9 +55987,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1021366319}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1021366325}
     - targetCorrespondingSourceObject: {fileID: -1996471662184344498, guid: 98ca3198e88e62948bff4a6f53dec6ff, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1826645690}
@@ -57118,20 +57065,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2125787680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125787672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  targetTag: Player
 --- !u!4 &2131172520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3552838591911248109, guid: 184a1976e286fc94482922755570e14f, type: 3}

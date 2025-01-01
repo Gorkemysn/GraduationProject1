@@ -1,86 +1,76 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    [Header("Skybox Textures")]
     [SerializeField] private Texture2D skyboxNight;
     [SerializeField] private Texture2D skyboxSunrise;
     [SerializeField] private Texture2D skyboxDay;
     [SerializeField] private Texture2D skyboxSunset;
 
-    [SerializeField] private Gradient graddientNightToSunrise;
-    [SerializeField] private Gradient graddientSunriseToDay;
-    [SerializeField] private Gradient graddientDayToSunset;
-    [SerializeField] private Gradient graddientSunsetToNight;
-
+    [Header("Light Settings")]
+    [SerializeField] private Gradient gradientNightToSunrise;
+    [SerializeField] private Gradient gradientSunriseToDay;
+    [SerializeField] private Gradient gradientDayToSunset;
+    [SerializeField] private Gradient gradientSunsetToNight;
     [SerializeField] private Light globalLight;
 
-    public int minutes;
-
-    public int Minutes
-    { get { return minutes; } set { minutes = value; OnMinutesChange(value); } }
-
+    [Header("Time Settings")]
+    public int minutes = 0;
     public int hours = 5;
-
-    public int Hours
-    { get { return hours; } set { hours = value; OnHoursChange(value); } }
-
-    public int days;
-
-    public int Days
-    { get { return days; } set { days = value; } }
-
+    public int days = 0;
+    public float timeScale = 1.0f; // Zaman çarpaný
     private float tempSecond;
 
-    public void Update()
+    void Start()
     {
-        tempSecond += Time.deltaTime;
-
-        if (tempSecond >= 0.05)
-        {
-            Minutes += 1;
-            tempSecond = 0;
-        }
+        // Her saniyede bir dakika ekleme için zamanlayýcý baþlat
+        InvokeRepeating(nameof(UpdateTime), 0f, 1f / timeScale);
     }
 
-    private void OnMinutesChange(int value)
+    private void UpdateTime()
     {
-        globalLight.transform.Rotate(Vector3.up, (1f / (1440f / 4f)) * 90f, Space.World);
-        if (value >= 60)
+        minutes++;
+        if (minutes >= 60)
         {
-            Hours++;
             minutes = 0;
+            hours++;
+            OnHoursChange(hours);
         }
-        if (Hours >= 24)
+
+        if (hours >= 24)
         {
-            Hours = 0;
-            Days++;
+            hours = 0;
+            days++;
         }
+
+        // Gün ýþýðý rotasyonu
+        globalLight.transform.Rotate(Vector3.up, (1f / (1440f / 4f)) * 90f, Space.World);
     }
 
     private void OnHoursChange(int value)
     {
+        // Saat deðiþimlerinde geçiþ baþlat
         if (value == 6)
         {
             StartCoroutine(LerpSkybox(skyboxNight, skyboxSunrise, 10f));
-            StartCoroutine(LerpLight(graddientNightToSunrise, 10f));
+            StartCoroutine(LerpLight(gradientNightToSunrise, 10f));
         }
         else if (value == 12)
         {
             StartCoroutine(LerpSkybox(skyboxSunrise, skyboxDay, 10f));
-            StartCoroutine(LerpLight(graddientSunriseToDay, 10f));
+            StartCoroutine(LerpLight(gradientSunriseToDay, 10f));
         }
         else if (value == 18)
         {
             StartCoroutine(LerpSkybox(skyboxDay, skyboxSunset, 10f));
-            StartCoroutine(LerpLight(graddientDayToSunset, 10f));
+            StartCoroutine(LerpLight(gradientDayToSunset, 10f));
         }
         else if (value == 24)
         {
             StartCoroutine(LerpSkybox(skyboxSunset, skyboxNight, 10f));
-            StartCoroutine(LerpLight(graddientSunsetToNight, 10f));
+            StartCoroutine(LerpLight(gradientSunsetToNight, 10f));
         }
     }
 
