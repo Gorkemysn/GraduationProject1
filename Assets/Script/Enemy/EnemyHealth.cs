@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100; // Maksimum can
+    public int goldReward = 10; // Düþman öldüðünde kazanýlacak altýn miktarý
     private int currentHealth;
     private HealthBar healthBar;
     private Animator animator; // Animasyon bileþeni
@@ -44,6 +45,10 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         Debug.Log(gameObject.name + " has been defeated!");
+
+        // Altýn ekle
+        GoldManager.instance.AddGold(goldReward);
+        Debug.Log("Player earned " + goldReward + " gold!");
 
         // Ölüm animasyonunu tetikle
         if (animator != null)
