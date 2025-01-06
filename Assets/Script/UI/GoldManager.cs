@@ -38,4 +38,10 @@ public class GoldManager : MonoBehaviour
     {
         goldText.text = "Altýn: " + currentGold.ToString();
     }
+
+    public int CurrentGold
+    {
+        get { return currentGold; }
+    }
+
 }

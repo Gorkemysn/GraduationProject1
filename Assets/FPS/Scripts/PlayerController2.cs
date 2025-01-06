@@ -13,10 +13,10 @@ public class PlayerController2 : MonoBehaviour
     AudioSource audioSource;
 
     [Header("Controller")]
-    public float moveSpeed = 5;
+    public float moveSpeed = 2;
     public float gravity = -9.8f;
     public float jumpHeight = 1.2f;
-    public float sprintSpeed = 8f; // Koþma hýzý
+    public float sprintSpeed = 5f; // Koþma hýzý
     private bool isSprinting = false; // Koþma durumu
     public float dodgeDistance = 3f; // Dodge mesafesi
     public float dodgeDuration = 0.2f; // Dodge süresi

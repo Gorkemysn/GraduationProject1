@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100; // Maksimum can
-    private int currentHealth;
+    public int currentHealth;
     public HealthBar healthBar;
     public DeathMenu deathMenu; // DeathMenu referansý
 
