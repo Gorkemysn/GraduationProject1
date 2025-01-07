@@ -17,6 +17,8 @@ public class EndGameTrigger : MonoBehaviour
     // Final sahnesini yükleme fonksiyonu
     private void LoadEndScene()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // "EndScene" adýndaki sahneyi yükler
         SceneManager.LoadScene("EndScene");
     }

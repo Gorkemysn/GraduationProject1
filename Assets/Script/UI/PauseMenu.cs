@@ -6,13 +6,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI; // Pause menüsü UI'ýný temsil eder
     private bool isPaused = false;
 
-    private CamFollow cameraScript; // Kamera script'ine eriþim için referans
-
-    private void Start()
-    {
-        // Kamera script'ine eriþ
-        cameraScript = FindObjectOfType<CamFollow>();
-    }
 
     private void Update()
     {
@@ -37,12 +30,6 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        // Fareyi serbest býrak (kamera kontrolünü devre dýþý býrak)
-        if (cameraScript != null)
-        {
-            cameraScript.UnlockCursor();
-        }
     }
 
     public void ResumeGame()
@@ -53,11 +40,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 Cursor.visible = false;
 
-        // Fareyi kilitle (kamera kontrolünü tekrar etkinleþtir)
-        if (cameraScript != null)
-        {
-            cameraScript.LockCursor();
-        }
     }
 
     public void BackToMenu()
