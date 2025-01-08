@@ -36,7 +36,7 @@ public class GoldManager : MonoBehaviour
     // UI'yý güncelle
     private void UpdateGoldUI()
     {
-        goldText.text = "Altýn: " + currentGold.ToString();
+        goldText.text = "Gold: " + currentGold.ToString();
     }
 
     public int CurrentGold
