@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
-public class SkillButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class SkillButton : MonoBehaviour
 {
-    public Image fillBar;  // Dolum çubuðu
-    public float fillSpeed = 2f;  // Dolum hýzý
-    private bool isFilling = false;  // Dolum iþlemi devam ediyor mu?
     private bool isSkillSelected = false;  // Yetenek seçildi mi?
+    private bool isSkillSelectable = false;  // Yetenek seçilebilir mi?
 
     public int goldCost = 20;  // Yetenek maliyeti
     public float moveSpeedIncrease = 0f;  // Hareket hýzý artýþý
@@ -16,45 +14,53 @@ public class SkillButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public int staminaIncrease = 0;  // Stamina artýþý
     public int damageIncrease = 0;  // Hasar artýþý
 
+    public List<SkillButton> nextSkills; // Baðlý sonraki skilller
+
+    public Color lockedColor = Color.gray; // Kilitli skill rengi
+    public Color selectableColor = Color.white; // Seçilebilir skill rengi
+    public Color selectedColor = Color.green; // Seçilen skill rengi
+
+    private Image skillImage; // Skill düðmesinin görseli
     private PlayerController2 playerController;
     private PlayerHealth playerHealth;
     private CombatAndSword combatAndSword;
 
     void Start()
     {
+        skillImage = GetComponent<Image>();
         playerController = FindObjectOfType<PlayerController2>();
         playerHealth = FindAnyObjectByType<PlayerHealth>();
         combatAndSword = FindAnyObjectByType<CombatAndSword>();
+
+        // Skill baþlangýç durumunu güncelle
+        UpdateSkillVisual();
+
+        // Baþlangýçta sadece 1. seviyedeki skill'leri seçilebilir yap
+        if (gameObject.name == "HealthSkill-1" || gameObject.name == "MovementSkill-1" || gameObject.name == "AttackSkill-1")
+        {
+            SetSelectable(); // Bu skill'ler seçilebilir
+        }
     }
 
     void Update()
     {
-        // Dolum iþlemi devam ediyorsa dolum çubuðunu artýr
-        if (isFilling && fillBar.fillAmount < 1f && !isSkillSelected)
+        // Seçim yapýlamazsa, baþlangýçta kilitli renk gösterilsin.
+        if (!isSkillSelectable && !isSkillSelected)
         {
-            fillBar.fillAmount += fillSpeed * Time.deltaTime;
+            skillImage.color = lockedColor;
         }
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnClick()
     {
-        if (isSkillSelected) return;  // Yetenek zaten seçildiyse iþlem yapma
-        isFilling = true;  // Dolum iþlemine baþla
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (isSkillSelected) return;  // Yetenek zaten seçildiyse iþlem yapma
-        isFilling = false;  // Dolum iþlemine son ver
-
-        if (fillBar.fillAmount >= 1f)
+        // Eðer skill seçilebilir deðilse veya zaten seçildiyse iþlem yapýlmaz.
+        if (!isSkillSelectable || isSkillSelected)
         {
-            TrySelectSkill();  // Eðer dolum tamamlandýysa yeteneði seç
+            Debug.Log("Bu yetenek seçilemez!");
+            return;
         }
-        else
-        {
-            fillBar.fillAmount = 0f;  // Dolum tamamlanmadýysa sýfýrla
-        }
+
+        TrySelectSkill();
     }
 
     private void TrySelectSkill()
@@ -65,41 +71,19 @@ public class SkillButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             return;
         }
 
+        // Altýn kontrolü
         if (GoldManager.instance.CurrentGold >= goldCost)
         {
             GoldManager.instance.AddGold(-goldCost);  // Altýný düþür
 
-            // Hareket ve sprint hýzýný artýr
-            if (moveSpeedIncrease > 0)
-            {
-                playerController.moveSpeed += moveSpeedIncrease;
-            }
+            // Yetenek etkilerini uygula
+            ApplySkillEffects();
 
-            if (sprintSpeedIncrease > 0)
-            {
-                playerController.sprintSpeed += sprintSpeedIncrease;
-            }
-
-            // Saðlýk ve stamina artýþý
-            if (healthIncrease > 0)
-            {
-                playerHealth.maxHealth += healthIncrease;
-                playerHealth.currentHealth += healthIncrease;  // Mevcut saðlýðý da artýr
-            }
-
-            if (staminaIncrease > 0)
-            {
-                playerController.maxStamina += staminaIncrease;
-            }
-
-            // Hasar artýþý
-            if (damageIncrease > 0)
-            {
-                combatAndSword.swordDamage += damageIncrease;
-            }
-
-            isSkillSelected = true;  // Yetenek baþarýyla seçildi
+            isSkillSelected = true; // Yetenek seçildi
             Debug.Log("Yetenek baþarýyla seçildi!");
+
+            // Baðlý skilleri aç
+            SelectSkill();
         }
         else
         {
@@ -107,13 +91,68 @@ public class SkillButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         }
     }
 
-    public void PointerDownWrapper()
+    private void ApplySkillEffects()
     {
-        OnPointerDown(null);  // PointerEventData null geçilebilir
+        // Hareket ve sprint hýzýný artýr
+        if (moveSpeedIncrease > 0)
+        {
+            playerController.moveSpeed += moveSpeedIncrease;
+        }
+
+        if (sprintSpeedIncrease > 0)
+        {
+            playerController.sprintSpeed += sprintSpeedIncrease;
+        }
+
+        // Saðlýk ve stamina artýþý
+        if (healthIncrease > 0)
+        {
+            playerHealth.maxHealth += healthIncrease;
+            playerHealth.currentHealth += healthIncrease;  // Mevcut saðlýðý artýr
+        }
+
+        if (staminaIncrease > 0)
+        {
+            playerController.maxStamina += staminaIncrease;
+        }
+
+        // Hasar artýþý
+        if (damageIncrease > 0)
+        {
+            combatAndSword.swordDamage += damageIncrease;
+        }
     }
 
-    public void PointerUpWrapper()
+    private void SelectSkill()
     {
-        OnPointerUp(null);  // PointerEventData null geçilebilir
+        UpdateSkillVisual(); // Mevcut skilli güncelle
+
+        // Baðlý skill'leri aç
+        foreach (SkillButton nextSkill in nextSkills)
+        {
+            nextSkill.SetSelectable();
+        }
+    }
+
+    public void SetSelectable()
+    {
+        isSkillSelectable = true; // Skill seçilebilir oldu
+        UpdateSkillVisual();
+    }
+
+    private void UpdateSkillVisual()
+    {
+        if (isSkillSelected)
+        {
+            skillImage.color = selectedColor; // Yetenek seçilmiþ rengi
+        }
+        else if (isSkillSelectable)
+        {
+            skillImage.color = selectableColor; // Seçilebilir rengi
+        }
+        else
+        {
+            skillImage.color = lockedColor; // Kilitli rengi
+        }
     }
 }
