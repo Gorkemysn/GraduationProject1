@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 6, y: -140}
+  m_AnchoredPosition: {x: -130, y: -140}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16133313
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The End
+  m_text: "\"You\u2019re free at last!\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
   m_sharedMaterial: {fileID: 8405554088707393992, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -276.3075, w: -20.750946}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -419,8 +419,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Return Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
-  m_sharedMaterial: {fileID: 8405554088707393992, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 80e0e61087112d148bed106d2e170ca0, type: 2}
+  m_sharedMaterial: {fileID: 3812909514672212154, guid: 80e0e61087112d148bed106d2e170ca0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
