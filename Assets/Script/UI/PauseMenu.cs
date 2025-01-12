@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering.PostProcessing;
+
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,9 +13,6 @@ public class PauseMenu : MonoBehaviour
         // ESC tuþuna basýldýðýnda pause menüsünü aç/kapat
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
-            PostProcessVolume ppVolume = Camera.main.gameObject.GetComponent<PostProcessVolume>();
-            ppVolume.enabled = !ppVolume.enabled;
 
             if (isPaused)
             {

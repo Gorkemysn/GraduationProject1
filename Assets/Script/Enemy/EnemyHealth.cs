@@ -57,6 +57,6 @@ public class EnemyHealth : MonoBehaviour
         }
 
         // Ölüm animasyonu tamamlandýðýnda düþmaný yok et
-        Destroy(gameObject, 2f); // 2 saniye sonra düþman yok edilir
+        Destroy(gameObject, 1f); // 2 saniye sonra düþman yok edilir
     }
 }
