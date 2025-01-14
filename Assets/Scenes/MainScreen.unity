@@ -14230,7 +14230,7 @@ PrefabInstance:
       objectReference: {fileID: 1696834724}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: sprintSpeed
-      value: 50
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: attackDamage
@@ -22911,7 +22911,7 @@ MonoBehaviour:
   minutes: 0
   hours: 6
   days: 0
-  timeScale: 15
+  timeScale: 25
 --- !u!4 &723231202
 Transform:
   m_ObjectHideFlags: 0
