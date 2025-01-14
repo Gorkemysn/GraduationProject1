@@ -5593,7 +5593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11eb5121ed7d85b4db2b1103dc172477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 20
+  damageAmount: 15
   targetTag: Player
 --- !u!65 &160201194
 BoxCollider:
@@ -14222,7 +14222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: moveSpeed
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: staminaBar
@@ -14230,7 +14230,7 @@ PrefabInstance:
       objectReference: {fileID: 1696834724}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: sprintSpeed
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 481995042327841608, guid: 0630ddb66c43ce74b926a6ec5e0b0b3e, type: 3}
       propertyPath: attackDamage
@@ -22911,7 +22911,7 @@ MonoBehaviour:
   minutes: 0
   hours: 6
   days: 0
-  timeScale: 8
+  timeScale: 15
 --- !u!4 &723231202
 Transform:
   m_ObjectHideFlags: 0
@@ -65989,7 +65989,7 @@ MonoBehaviour:
   attackTriggerName: Attack
   sword: {fileID: 686832224}
   swordHitbox: {fileID: 1124541846}
-  swordDamage: 50
+  swordDamage: 20
   enemyLayers:
     serializedVersion: 2
     m_Bits: 192
