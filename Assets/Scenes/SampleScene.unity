@@ -965,8 +965,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 846665568}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &136933358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2086,8 +2094,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 956185466}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &394231197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2605,8 +2621,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 1173169221}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &526934982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3279,8 +3303,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 645104371}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &660031163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3416,8 +3448,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 757000255}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &668583722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4753,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c0827b543933545a3990c4c97bf9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1963127269}
+  target: {fileID: 0}
   offset: {x: 0.5, y: 2.5, z: -3}
   smoothSpeed: 0.125
 --- !u!1 &979436904
@@ -4918,8 +4958,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 1913546100}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1004713395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5055,8 +5103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 475430676}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1075071297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6106,8 +6162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 2008850330}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1541366291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7098,8 +7162,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6702a5f74552c4aa36fc3afc0160ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillBar: {fileID: 2056664342}
-  fillSpeed: 2
+  goldCost: 20
+  moveSpeedIncrease: 0
+  sprintSpeedIncrease: 0
+  healthIncrease: 0
+  staminaIncrease: 0
+  damageIncrease: 0
+  nextSkills: []
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  selectableColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &1766139268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7913,194 +7985,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913546098}
   m_CullTransparentMesh: 1
---- !u!1001 &1963127263
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_Name
-      value: Ch36_nonPBR (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1963127268}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1963127267}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1963127266}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1963127265}
-  m_SourcePrefab: {fileID: 100100000, guid: 5b88aee308937264da07c643845aeff3, type: 3}
---- !u!1 &1963127264 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-  m_PrefabInstance: {fileID: 1963127263}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1963127265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963127264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 503df01562bfe98479b141d9529a06e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1963127266}
-  walkSpeed: 2
-  runSpeed: 5
-  jumpForce: 5
-  cameraTransform: {fileID: 963194228}
-  rollDistance: 3
-  rollCooldown: 1
-  maxStamina: 100
-  staminaRegenRate: 5
-  staminaUsageRateRun: 10
-  staminaUsageRoll: 20
-  staminaBar: {fileID: 0}
---- !u!95 &1963127266
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963127264}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 00f64b7e775b5f542b4007b58bb56977, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!54 &1963127267
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963127264}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!65 &1963127268
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963127264}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.679189, z: 1}
-  m_Center: {x: 0, y: 0.89924943, z: 0}
---- !u!4 &1963127269 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b88aee308937264da07c643845aeff3, type: 3}
-  m_PrefabInstance: {fileID: 1963127263}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1975557106
 GameObject:
   m_ObjectHideFlags: 0
@@ -9124,7 +9008,6 @@ SceneRoots:
   - {fileID: 2094150917}
   - {fileID: 2066846976}
   - {fileID: 536030520}
-  - {fileID: 1963127263}
   - {fileID: 1878194319}
   - {fileID: 548770640}
   - {fileID: 846563114}

@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ESCAPE FROM CITY
+  m_text: ESCAPE FROM LOST CITY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
   m_sharedMaterial: {fileID: 8405554088707393992, guid: 54ad463466c8959409be4363d53efa2b, type: 2}
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 199.47394, w: 220.01859}
+  m_margin: {x: 0, y: 0, z: 213.14453, w: 220.01859}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
